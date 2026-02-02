@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Be My Valentine 💗</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ff9acb, #ffd1e8);
+      font-family: 'Comic Sans MS', 'Poppins', cursive;
+      overflow: hidden;
+    }
+
+
+    .card {
+      background: #fff0f7;
+      padding: 40px 50px;
+      border-radius: 25px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      text-align: center;
+      max-width: 400px;
+    }
+
+
+    h1 {
+      color: #ff4f9a;
+      margin-bottom: 10px;
+      font-size: 2.2rem;
+    }
+
+
+    p {
+      color: #ff6fae;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+
+    .buttons {
+      position: relative;
+      height: 80px;
+    }
+
+
+    button {
+      border: none;
+      padding: 15px 28px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+
+    #yes {
+      background: #ff4f9a;
+      color: white;
+      margin-right: 15px;
+    }
+
+
+    #yes:hover {
+      transform: scale(1.1);
+    }
+
+
+    #no {
+      background: #ffc1dc;
+      color: #ff2f87;
+      position: absolute;
+    }
+
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: float 4s infinite ease-in-out;
+      opacity: 0.6;
+    }
+
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hey Baby 💕</h1>
+    <p>Will you be my Valentine? 💖🌸</p>
+    <div class="buttons">
+      <button id="yes" onclick="sayYes()">Yes 💘</button>
+      <button id="no" onmouseover="runAway()">No 🙈</button>
+    </div>
+  </div>
+
+
+  <script>
+    const noBtn = document.getElementById('no');
+
+
+    function runAway() {
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+    }
+
+
+    function sayYes() {
+      document.body.innerHTML = `
+        <div style="text-align:center; padding-top:60px;">
+          <h1 style="color:#ff4f9a; font-size:3rem;">YAYYY 💖🥹</h1>
+          <p style="color:#ff6fae; font-size:1.5rem; margin-bottom:20px;">You just made me the happiest person 💕</p>
+          <div style="max-width:560px; margin:0 auto; border-radius:20px; overflow:hidden; box-shadow:0 20px 40px rgba(0,0,0,0.2);">
+            <audio id="loveSong" autoplay>
+              <source src="high-on-you.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+            <p style="margin-top:12px; color:#ff6fae; font-size:0.95rem;">🎶 Playing just for you</p>
+          </div>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
